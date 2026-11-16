@@ -7,7 +7,7 @@
     $usuario = $_POST["usuario"];
     $password = $_POST["password"];
 
-    $sql = "SELECT * FROM usuarios WHERE usuario = ? AND password = ?";
+    $sql = "SELECT * FROM academia WHERE usuario = ? AND password = ?";
 
     $stmt = mysqli_prepare($conexion, $sql);
 
