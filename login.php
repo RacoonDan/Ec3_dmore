@@ -14,6 +14,6 @@
         header("Location: pagina.html");
     }else{
         echo "<script>alert('Usuario incorrecto');</script>";
-        echo "<script>window.location.href=('login.php');</script>";
+        echo "<script>window.location.href=('login.html');</script>";
     }
 ?>
