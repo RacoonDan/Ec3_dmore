@@ -1,10 +1,20 @@
 <?php
 
-var_dump([
-    'MYSQLHOST' => getenv('MYSQLHOST'),
-    'MYSQLPORT' => getenv('MYSQLPORT'),
-    'MYSQLUSER' => getenv('MYSQLUSER'),
-    'MYSQLDATABASE' => getenv('MYSQLDATABASE')
-]);
+$host = getenv("MYSQLHOST");
+$port = getenv("MYSQLPORT");
+$user = getenv("MYSQLUSER");
+$password = getenv("MYSQLPASSWORD");
+$database = getenv("MYSQLDATABASE");
 
-exit;
+$conexion = mysqli_connect(
+    $host,
+    $user,
+    $password,
+    $database,
+    (int)$port
+);
+
+if (!$conexion) {
+    die("Error de conexión: " . mysqli_connect_error());
+}
+?>
