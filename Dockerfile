@@ -1,4 +1,3 @@
-
 FROM php:8.2-cli
 
 # Instalar extensión para MySQL
