@@ -1,11 +1,5 @@
 <?php
-    $host="localhost";
-    $user="root";
-    $password="120419";
-    $db="academia";
-
-    $con=mysqli_connect($host, $user, $password, $db) or die("Problemas al conectar");
-        mysqli_select_db($con,$db);
+    require_once "conexion.php";
     
     //TRABAJANDO CON LAS VARIABLES
 
