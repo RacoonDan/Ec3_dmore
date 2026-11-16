@@ -5,8 +5,10 @@
 
     $usuario=$_POST["usuario"];
     $password=$_POST["password"];
-    $sql=mysqli_query($conexion, "SELECT * FROM academia WHERE usuario='".$usuario."' and password'".$password."' ");
-    $nr=mysqli_num_rows($sql);
+    $sql = "SELECT * FROM usuarios WHERE
+usuario = '$usuario' AND
+password = '$password'";
+    $nr=mysqli_query($conexion, $sql);
 
     //USO MI CONDICIONAL
 
