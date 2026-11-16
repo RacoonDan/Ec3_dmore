@@ -1,18 +1,28 @@
+
 <?php
     require_once "conexion.php";
-    
-    //TRABAJANDO CON LAS VARIABLES
 
-    $usuario=$_POST["usuario"];
-    $password=$_POST["password"];
+    // TRABAJANDO CON LAS VARIABLES
+
+    $usuario = $_POST["usuario"];
+    $password = $_POST["password"];
+
     $sql = "SELECT * FROM usuarios WHERE usuario = ? AND password = ?";
-    $nr=mysqli_query($conexion, $sql);
 
-    //USO MI CONDICIONAL
+    $stmt = mysqli_prepare($conexion, $sql);
 
-    if ($nr == 1){
+    mysqli_stmt_bind_param($stmt, "ss", $usuario, $password);
+
+    mysqli_stmt_execute($stmt);
+
+    $nr = mysqli_stmt_get_result($stmt);
+
+    // USO MI CONDICIONAL
+
+    if (mysqli_num_rows($nr) == 1) {
         header("Location: pagina.html");
-    }else{
+        exit();
+    } else {
         echo "<script>alert('Usuario incorrecto');</script>";
         echo "<script>window.location.href=('login.html');</script>";
     }
