@@ -5,7 +5,7 @@ require_once "conexion.php";
 $usuario = $_POST["usuario"];
 $password = $_POST["password"];
 
-$sql = "SELECT * FROM usuarios WHERE usuario = ? AND password = ?";
+$sql = "SELECT * FROM academia WHERE usuario = ? AND password = ?";
 
 $stmt = mysqli_prepare($conexion, $sql);
 mysqli_stmt_bind_param($stmt, "ss", $usuario, $password);
